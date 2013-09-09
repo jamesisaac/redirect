@@ -5,7 +5,6 @@ require_once __DIR__.'/../vendor/autoload.php';
 use Doctrine\DBAL\DriverManager;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 // Bootstrap the application
 $app = new Silex\Application();
@@ -56,7 +55,7 @@ $app->get('/{path}', function (Application $app, Request $request, $path) use ($
     ));
 
     // Moved permanently
-    return new RedirectResponse($link['url'], 301);
+    return $app->redirect($link['url'], 301);
 })
 ->assert('path', '[A-Za-z0-9\-]+(/[A-Za-z0-9\-]+)?');
 
