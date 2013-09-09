@@ -5,7 +5,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 use Doctrine\DBAL\DriverManager;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 // Bootstrap the application
 $app = new Silex\Application();
@@ -15,7 +15,7 @@ $app = new Silex\Application();
 $conn = DriverManager::getConnection(array(
     'dbname' => 'redirect',
     'user' => 'root',
-    'pass' => '',
+    'password' => '',
     'driver' => 'pdo_mysql'
 ));
 
@@ -56,7 +56,7 @@ $app->get('/{path}', function (Application $app, Request $request, $path) use ($
     ));
 
     // Moved permanently
-    return $app->redirect($link['url'], 301);
+    return new RedirectResponse($link['url'], 301);
 })
 ->assert('path', '[A-Za-z0-9\-]+(/[A-Za-z0-9\-]+)?');
 
