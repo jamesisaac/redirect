@@ -51,7 +51,7 @@ $app->get('/{path}', function (Application $app, Request $request, $path) use ($
         'visited_at' => date('Y-m-d H:i:s'),
         'ip' => $request->getClientIp(),
         'ua' => $request->server->get('HTTP_USER_AGENT'),
-        'referer' => $request->headers->get('referer'),
+        'referer' => $request->server->get('HTTP_REFERER'),
     ));
 
     // Moved permanently
