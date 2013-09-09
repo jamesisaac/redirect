@@ -1,0 +1,11 @@
+RewriteEngine On
+
+Options -Indexes
+
+RedirectMatch permanent ^/index\.php/(.*) /$1
+
+RewriteCond %{HTTP_HOST} !^james.es$
+RewriteRule ^(.*)$ http://james.es/$1 [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php [QSA,L]

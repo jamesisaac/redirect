@@ -15,8 +15,13 @@ $app = new Silex\Application();
 $conn = DriverManager::getConnection(array(
     'dbname' => 'redirect',
     'user' => 'root',
+    'pass' => '',
     'driver' => 'pdo_mysql'
 ));
+
+/* $app->get('/', function(Application $app) {
+    return $app->redirect('http://jamesisaac.me');
+}); */
 
 // Set up the main route
 $app->get('/{path}', function (Application $app, Request $request, $path) use ($conn) {
