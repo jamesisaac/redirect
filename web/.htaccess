@@ -5,6 +5,7 @@ Options -Indexes
 RedirectMatch permanent ^/index\.php/(.*) /$1
 
 RewriteCond %{HTTP_HOST} !^james.es$
+RewriteCond %{HTTP_HOST} !^127.0.0.1$
 RewriteRule ^(.*)$ http://james.es/$1 [L,R=301]
 
 RewriteCond %{REQUEST_FILENAME} !-f

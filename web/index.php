@@ -57,6 +57,6 @@ $app->get('/{path}', function (Application $app, Request $request, $path) use ($
     // Moved permanently
     return $app->redirect($link['url'], 301);
 })
-->assert('path', '[A-Za-z0-9\-]+(/[A-Za-z0-9\-]+)?');
+->assert('path', '^([A-Za-z0-9\-]+)?(/[A-Za-z0-9\-]+)?$');
 
 $app->run();
