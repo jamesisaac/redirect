@@ -18,10 +18,6 @@ $conn = DriverManager::getConnection(array(
     'driver' => 'pdo_mysql'
 ));
 
-/* $app->get('/', function(Application $app) {
-    return $app->redirect('http://jamesisaac.me');
-}); */
-
 // Set up the main route
 $app->get('/{path}', function (Application $app, Request $request, $path) use ($conn) {
     // Get the namespace and parts
