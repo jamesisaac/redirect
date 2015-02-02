@@ -1,0 +1,10 @@
+<?php
+
+$config = array(
+    'db' => array(
+        'dbname' => 'redirect',
+        'user' => 'root',
+        'password' => '',
+        'driver' => 'pdo_mysql'
+    ),
+);

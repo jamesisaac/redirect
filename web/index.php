@@ -11,12 +11,8 @@ $app = new Silex\Application();
 // $app['debug'] = true;
 
 // Create a database connection
-$conn = DriverManager::getConnection(array(
-    'dbname' => 'redirect',
-    'user' => 'root',
-    'password' => '',
-    'driver' => 'pdo_mysql'
-));
+require_once __DIR__.'/../config.php';
+$conn = DriverManager::getConnection($config['db']);
 
 // Set up the main route
 $app->get('/{path}', function (Application $app, Request $request, $path) use ($conn) {
